@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 
 import os
 
-from django.core.wsgi import get_wsgi_application
+from channels.routing import get_default_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat.settings')
 
-application = get_wsgi_application()
+application = get_default_application()
