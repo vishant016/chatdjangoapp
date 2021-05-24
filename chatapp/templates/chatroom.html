@@ -38,7 +38,13 @@
 
 
     <script>
-
+   const chatSocket = new WebSocket(
+            'ws://' +
+            window.location.host +
+            '/ws/chatapp/' +
+            roomName +
+            '/'
+        );
         const user_username = JSON.parse(document.getElementById('user_username').textContent);
         document.querySelector('#submit').onclick = function (e) {
             const messageInputDom = document.querySelector('#input');
@@ -51,13 +57,7 @@
         };
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
-        const chatSocket = new WebSocket(
-            'ws://' +
-            window.location.host +
-            '/ws/chatapp/' +
-            roomName +
-            '/'
-        );
+     
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
